@@ -1,40 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { signOut } from "firebase/auth";
-import { auth, db } from "../components/firebase-config";
+import React from "react";
 import MenuItems from "./MenuItems";
 import getMenuItems from "../menuItems";
 import "../App.css";
 
 const Navbar = () => {
-
   const menuItems = getMenuItems();
-
-  const [isAuth, setIsAuth] = useState(false); 
-
-  const handleLogOutClick = () => {
-    
-    signOut(auth).then(() => {
-      setIsAuth(false); // Update the authentication state to false
-      localStorage.clear();
-      window.location.pathname = "/";
-    });
-  };
-
-  useEffect(() => {
-    // Set up Firebase authentication observer to listen for changes in the user's login status
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in.
-        setIsAuth(true); // Update the authentication state to true
-      } else {
-        // User is signed out.
-        setIsAuth(false); // Update the authentication state to false
-      }
-    });
-
-    // Clean up the observer when the component unmounts
-    return () => unsubscribe();
-  }, []);
 
   return (
     <nav>
@@ -44,14 +14,6 @@ const Navbar = () => {
           return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
         })}
       </ul>
-      <div className="menu-items">
-        {!isAuth ? (
-          <a >Login</a>
-        ) : (
-          <div className="auth-links">
-          </div>
-        )}
-      </div>
     </nav>
   );
 };

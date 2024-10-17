@@ -1,18 +1,6 @@
-import React, { useState } from "react";
-import { signOut } from "firebase/auth";
-import { auth } from "./components/firebase-config";
+import React from "react";
 
 const getMenuItems = () => {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-
-  const signUserOut = () => {
-    signOut(auth).then(() => {
-      localStorage.clear();
-      setIsAuth(false);
-      window.location.pathname = "/login";
-    });
-  };
-
   const menuItems = [
     {
       title: 'Home',

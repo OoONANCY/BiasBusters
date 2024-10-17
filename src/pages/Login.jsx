@@ -1,30 +1,18 @@
 import React from "react";
-import { auth } from "../components/firebase-config";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setIsAuth }) {
+function Login() {
   let navigate = useNavigate();
-  const provider = new GoogleAuthProvider();
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        localStorage.setItem("isAuth", true);
-        setIsAuth(true);
-        navigate("/");
-      })
-      .catch((error) => {
-        // Handle sign-in errors here
-        console.error("Error signing in with Google:", error);
-      });
+  const handleButtonClick = () => {
+    navigate("/");
   };
 
   return (
     <div className="loginPage">
-      <p>Sign In With Google to Continue</p>
-      <button className="login-with-google-btn" onClick={signInWithGoogle}>
-        Sign in with Google
+      <p>Welcome</p>
+      <button className="enter-btn" onClick={handleButtonClick}>
+        Enter
       </button>
     </div>
   );
