@@ -1,6 +1,6 @@
 # BiasBusters 🚀
 
-![BiasBusters Logo](./src/images/mainlogo.png)
+![BiasBusters Logo](./src/images/homeimgnew-min.png)
 
 ## Tackle Workplace Bias Head-On | Learn, Solve, Showcase
 
@@ -69,10 +69,6 @@ BiasBusters is a **gamified learning platform** that empowers professionals to u
 
 - React
 - Vite
-
-## 📄 License
-
-This project is licensed under the MIT License
 
 ---
 
